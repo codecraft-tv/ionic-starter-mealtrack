@@ -2,7 +2,7 @@ var app = angular.module('mealtrack.services.authentication', []);
 
 app.service('AuthService', function ($q) {
 	var self = {
-		user: null,
+		user: Parse.User.current(),
 		login: function (email, password) {
 			var d = $q.defer();
 
