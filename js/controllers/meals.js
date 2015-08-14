@@ -49,26 +49,40 @@ app.controller('MealCreateCtrl', function ($scope,
 
 
 	$scope.trackMeal = function (form) {
-		console.log("MealCreateCtrl::trackMeal");
-		//TODO
+		if (form.$valid) {
+			console.log("MealCreateCtrl::trackMeal");
+
+			$ionicLoading.show();
+			MealService.track($scope.formData).then(function () {
+				$scope.resetFormData();
+				$ionicLoading.hide();
+				form.$setPristine(true);
+				$state.go("tab.meals");
+			});
+		}
 	};
 
 	$scope.addPicture = function () {
-		//var options = {
-		//	quality: 50,
-		//	destinationType: Camera.DestinationType.DATA_URL,
-		//	sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-		//	allowEdit: true,
-		//	encodingType: Camera.EncodingType.JPEG,
-		//	targetWidth: 480,
-		//	popoverOptions: CameraPopoverOptions,
-		//	saveToPhotoAlbum: false
-		//};
+		var options = {
+			quality: 50,
+			destinationType: Camera.DestinationType.DATA_URL,
+			sourceType: Camera.PictureSourceType.PHOTOLIBRARY, // CAMERA
+			allowEdit: true,
+			encodingType: Camera.EncodingType.JPEG,
+			targetWidth: 480,
+			popoverOptions: CameraPopoverOptions,
+			saveToPhotoAlbum: false
+		};
 
-
-		//TODO
-
-
+		$cordovaCamera.getPicture(options).then(function (imageData) {
+			$scope.formData.picture = imageData;
+		}, function (err) {
+			console.error(err);
+			$ionicPopup.alert({
+				title:'Error getting picture',
+				subTitle: 'We had a problem trying to get that picture, please try again'
+			});
+		});
 	};
 
 });

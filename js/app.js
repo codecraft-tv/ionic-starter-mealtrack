@@ -27,7 +27,7 @@ app.run(function ($ionicPlatform) {
 	});
 
 		// Initialise Parse
-		Parse.initialize("<PLEASE-INSERT>", "<PLEASE-INSERT>");
+		Parse.initialize("m3K5TaINf5kyhzjaGkU2VHQbICr8hL8rBUmyL9a9", "coFHaE2kttlsU7tdRs5j1SZTtDTHWMaHL213wDO1");
 });
 
 app.config(function ($stateProvider, $urlRouterProvider) {
@@ -49,7 +49,33 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 			abstract: true,
 			templateUrl: "templates/tabs.html"
 		})
-		//TODO
+		.state('tab.meals', {
+			url: '/meals',
+			views: {
+				'tab-meals': {
+					templateUrl: 'templates/tabs/tab-meals.html',
+					controller: 'MealListCtrl'
+				}
+			}
+		})
+		.state('tab.track', {
+			url: '/track',
+			views: {
+				'tab-track': {
+					templateUrl: 'templates/tabs/tab-track.html',
+					controller: 'MealCreateCtrl'
+				}
+			}
+		})
+		.state('tab.account', {
+			url: '/account',
+			views: {
+				'tab-account': {
+					templateUrl: 'templates/tabs/tab-account.html',
+					controller: 'AccountCtrl'
+				}
+			}
+		})
 	;
 
 	// if none of the above states are matched, use this as the fallback

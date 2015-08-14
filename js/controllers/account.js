@@ -10,14 +10,19 @@ app.controller('AccountCtrl', function ($scope, $state, AuthService) {
 		email: AuthService.user.attributes.email
 	};
 
-	$scope.submit = function () {
-		console.log("AccountCtrl::submit");
-		//TODO
+	$scope.submit = function (form) {
+		if (form.$valid) {
+			console.log("AccountCtrl::submit");
+			AuthService.update($scope.formData).then(function () {
+				$state.go("tab.meals");
+			});
+		}
 	};
 
 
 	$scope.logout = function () {
 		console.log("AccountCtrl::logout");
-		//TODO
+		Parse.User.logOut();
+		$state.go("login");
 	};
 });

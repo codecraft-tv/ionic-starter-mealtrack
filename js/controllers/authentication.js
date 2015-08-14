@@ -10,9 +10,16 @@ app.controller('LoginCtrl', function ($scope, $state, AuthService) {
 		"password": ""
 	};
 
-	$scope.login = function () {
-		console.log("LoginCtrl::login");
-		//TODO
+	$scope.login = function (form) {
+
+		if (form.$valid) {
+			console.log("LoginCtrl::login");
+			AuthService.login($scope.formData.email, $scope.formData.password)
+				.then(function () {
+					$state.go("tab.meals")
+				});
+		}
+
 	};
 
 });
@@ -28,9 +35,16 @@ app.controller('SignupCtrl', function ($scope, $state, AuthService) {
 		"password": ""
 	};
 
-	$scope.signup = function () {
-		console.log("SignupCtrl::signup");
-		//TODO
+	$scope.signup = function (form) {
+		if (form.$valid) {
+			console.log("SignupCtrl::signup");
+			AuthService.signup($scope.formData.email,
+				$scope.formData.name,
+				$scope.formData.password)
+				.then(function () {
+					$state.go("tab.meals")
+				});
+		}
 	};
 
 });
