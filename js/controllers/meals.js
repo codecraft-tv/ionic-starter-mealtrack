@@ -21,7 +21,7 @@ app.controller('MealListCtrl', function ($scope, $ionicLoading, MealService) {
 
 	$scope.nextPage = function () {
 		$scope.meals.next().then(function () {
-			$scope.$broadcast('scroll.refreshComplete');
+			$scope.$broadcast('scroll.infiniteScrollComplete');
 		});
 	};
 
