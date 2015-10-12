@@ -21,7 +21,7 @@ app.controller('MealListCtrl', function ($scope, $ionicLoading, MealService) {
 
 	$scope.nextPage = function () {
 		$scope.meals.next().then(function () {
-			$scope.$broadcast('scroll.refreshComplete');
+			$scope.$broadcast('scroll.infiniteScrollComplete');
 		});
 	};
 
@@ -66,7 +66,7 @@ app.controller('MealCreateCtrl', function ($scope,
 		var options = {
 			quality: 50,
 			destinationType: Camera.DestinationType.DATA_URL,
-			sourceType: Camera.PictureSourceType.PHOTOLIBRARY, // CAMERA
+			sourceType: Camera.PictureSourceType.CAMERA, // CAMERA
 			allowEdit: true,
 			encodingType: Camera.EncodingType.JPEG,
 			targetWidth: 480,

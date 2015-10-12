@@ -27,7 +27,7 @@ app.run(function ($ionicPlatform) {
 	});
 
 		// Initialise Parse
-		Parse.initialize("m3K5TaINf5kyhzjaGkU2VHQbICr8hL8rBUmyL9a9", "coFHaE2kttlsU7tdRs5j1SZTtDTHWMaHL213wDO1");
+		Parse.initialize("<APPLICATION-ID>", "<JAVASCRIPT-ID>");
 });
 
 app.config(function ($stateProvider, $urlRouterProvider) {
