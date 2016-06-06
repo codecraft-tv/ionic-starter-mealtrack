@@ -37,8 +37,7 @@ app.service("MealService", function ($q, AuthService) {
 			// Perform the query
 			mealQuery.find({
 				success: function (results) {
-					angular.forEach(results, function (item) {
-						var meal = new Meal(item);
+					angular.forEach(results, function (meal) {
 						self.results.push(meal)
 					});
 					console.debug(self.results);

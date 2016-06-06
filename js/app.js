@@ -3,8 +3,8 @@ var app = angular.module('mealtrack', [
 	'ngMessages',
 	'ngCordova',
 	'angularMoment',
-	'parse-angular',
-	'parse-angular.enhance',
+	//'parse-angular',
+	//'parse-angular.enhance',
 	'mealtrack.controllers.authentication',
 	'mealtrack.controllers.meals',
 	'mealtrack.controllers.account',
@@ -27,7 +27,8 @@ app.run(function ($ionicPlatform) {
 	});
 
 		// Initialise Parse
-		Parse.initialize("<APPLICATION-ID>", "<JAVASCRIPT-ID>");
+		Parse.initialize('myAppId','unused');
+		Parse.serverURL = 'http://parse-server-test1.herokuapp.com/parse';
 });
 
 app.config(function ($stateProvider, $urlRouterProvider) {
