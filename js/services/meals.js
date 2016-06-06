@@ -3,7 +3,7 @@ var app = angular.module('mealtrack.services.meals', []);
 app.service("MealService", function ($q) {
 	var self = {
 		'page': 0,
-		'page_size': '20',
+		'page_size': 20,
 		'isLoading': false,
 		'isSaving': false,
 		'hasMore': true,
