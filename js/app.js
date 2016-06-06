@@ -27,7 +27,8 @@ app.run(function ($ionicPlatform) {
 	});
 
 		// Initialise Parse
-		Parse.initialize("<PLEASE-INSERT>", "<PLEASE-INSERT>");
+		Parse.initialize("<PLEASE-INSERT>");
+		Parse.serverURL = '<PLEASE-INSERT>';
 });
 
 app.config(function ($stateProvider, $urlRouterProvider) {
