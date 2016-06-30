@@ -3,8 +3,6 @@ var app = angular.module('mealtrack', [
 	'ngMessages',
 	'ngCordova',
 	'angularMoment',
-	'parse-angular',
-	'parse-angular.enhance',
 	'mealtrack.controllers.authentication',
 	'mealtrack.controllers.meals',
 	'mealtrack.controllers.account',
